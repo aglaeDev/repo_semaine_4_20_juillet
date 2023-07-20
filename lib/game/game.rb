@@ -44,7 +44,7 @@ class Board
       else
         puts "Case invalide. Veuillez choisir un numéro de case parmi 1 à 9."
         play_turn(player)
-    end
+      end
     end
   
     def victory?
@@ -53,25 +53,23 @@ class Board
       [@A1, @A2, @A3], [@B1, @B2, @B3], [@C1, @C2, @C3],
       [@A1, @B1, @C1], [@A2, @B2, @C2], [@A3, @B3, @C3], 
       [@A1, @B2, @C3], [@A3, @B2, @C1]
-    ]
-    winning_combinations.each do |combination|
-      if combination.all? { |case_obj| case_obj.case == "X" } ||
-         combination.all? { |case_obj| case_obj.case == "O" }
-        return true
+      ]
+      winning_combinations.each do |combination|
+        if combination.all? { |case_obj| case_obj.case == "X" } ||
+          combination.all? { |case_obj| case_obj.case == "O" }
+          return true
+        end
+        false
       end
-    end
-    
-    false
-  end
     end
 
-      def display_board
-        puts "\n"
-        puts " #{@A1.case} | #{@A2.case} | #{@A3.case}"
-        puts "---+---+---"
-        puts " #{@B1.case} | #{@B2.case} | #{@B3.case}"
-        puts "---+---+---"
-        puts " #{@C1.case} | #{@C2.case} | #{@C3.case}"
-        puts "\n"
-      end
+    def display_board
+      puts "\n"
+      puts " #{@A1.case} | #{@A2.case} | #{@A3.case}"
+      puts "---+---+---"
+      puts " #{@B1.case} | #{@B2.case} | #{@B3.case}"
+      puts "---+---+---"
+      puts " #{@C1.case} | #{@C2.case} | #{@C3.case}"
+      puts "\n"
+    end
 end
